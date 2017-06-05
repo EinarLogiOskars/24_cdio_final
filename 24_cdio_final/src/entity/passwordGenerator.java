@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.Collections;
+
 public class passwordGenerator {
 	
 	public String createPassword() {
