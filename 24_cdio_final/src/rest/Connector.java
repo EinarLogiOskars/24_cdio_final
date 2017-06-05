@@ -1,11 +1,12 @@
 package rest;
 
+import javax.print.attribute.standard.Media;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/bla")
+@Path("/final")
 public class Connector {
 	
 	@GET
@@ -13,6 +14,13 @@ public class Connector {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String hello() {
 		return "Hello from backend";
+	}
+	
+	@GET
+	@Path("/otherside")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String otherside() {
+		return "Hello from the othersiiiiiiide!";
 	}
 	
 }
