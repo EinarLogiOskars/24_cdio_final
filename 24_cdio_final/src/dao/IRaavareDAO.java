@@ -1,7 +1,9 @@
-package java;
+package dao;
 
-import java.IBrugerDAO.DALException;
 import java.util.List;
+
+import dao.IBrugerDAO.DALException;
+import entity.RaavareDTO;
 
 public interface IRaavareDAO {
 	RaavareDTO getRaavare(int raavareId) throws DALException;

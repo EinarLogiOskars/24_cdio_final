@@ -1,7 +1,9 @@
-package java;
+package dao;
 
-import java.IBrugerDAO.DALException;
 import java.util.List;
+
+import dao.IBrugerDAO.DALException;
+import entity.ReceptDTO;
 
 public interface IReceptDAO {
 	ReceptDTO getRecept(int receptId) throws DALException;

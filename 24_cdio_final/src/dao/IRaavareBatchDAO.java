@@ -1,7 +1,9 @@
-package java;
+package dao;
 
-import java.IBrugerDAO.DALException;
 import java.util.List;
+
+import dao.IBrugerDAO.DALException;
+import entity.RaavareBatchDTO;
 
 public interface IRaavareBatchDAO {
 	RaavareBatchDTO getRaavareBatch(int rbId) throws DALException;

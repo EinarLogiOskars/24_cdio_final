@@ -1,7 +1,9 @@
-package java;
+package dao;
 
-import java.IBrugerDAO.DALException;
 import java.util.List;
+
+import dao.IBrugerDAO.DALException;
+import entity.ProduktBatchKompDTO;
 
 public interface IProduktBatchKompDAO {
 	ProduktBatchKompDTO getProduktBatchKomp(int pbId, int rbId) throws DALException;
