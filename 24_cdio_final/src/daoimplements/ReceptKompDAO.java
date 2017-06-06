@@ -12,6 +12,14 @@ import entity.ReceptKompDTO;
 
 public class ReceptKompDAO implements IReceptKompDAO {
 
+	public ReceptKompDAO() {
+		try { new MySQLAccess(); } 
+		catch (InstantiationException e) { e.printStackTrace(); }
+		catch (IllegalAccessException e) { e.printStackTrace(); }
+		catch (ClassNotFoundException e) { e.printStackTrace(); }
+		catch (SQLException e) { e.printStackTrace(); }
+	}
+	
 	@Override
 	public List<ReceptKompDTO> getReceptKompList(int receptId) throws DALException {
 		// TODO Auto-generated method stub

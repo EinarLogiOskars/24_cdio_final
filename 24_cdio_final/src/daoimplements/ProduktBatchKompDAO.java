@@ -13,6 +13,14 @@ import entity.ProduktBatchKompDTO;
 
 public class ProduktBatchKompDAO implements IProduktBatchKompDAO {
 
+	public ProduktBatchKompDAO() {
+		try { new MySQLAccess(); } 
+		catch (InstantiationException e) { e.printStackTrace(); }
+		catch (IllegalAccessException e) { e.printStackTrace(); }
+		catch (ClassNotFoundException e) { e.printStackTrace(); }
+		catch (SQLException e) { e.printStackTrace(); }
+	}
+	
 	@Override
 	public ProduktBatchKompDTO getProduktBatchKomp(int pbId, int rbId) throws DALException {
 		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM PRODUKTBATCHKOMPONENT WHERE PB_ID = " + pbId + " AND RB_ID = " + rbId);

@@ -12,6 +12,14 @@ import entity.ProduktBatchDTO;
 
 public class ProduktBatchDAO implements IProduktBatchDAO{
 
+	public ProduktBatchDAO() {
+		try { new MySQLAccess(); } 
+		catch (InstantiationException e) { e.printStackTrace(); }
+		catch (IllegalAccessException e) { e.printStackTrace(); }
+		catch (ClassNotFoundException e) { e.printStackTrace(); }
+		catch (SQLException e) { e.printStackTrace(); }
+	}
+	
 	@Override
 	public ProduktBatchDTO getProduktBatch(int pbId) throws DALException {
 		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM PRODUKTBATCH WHERE PB_ID = " + pbId);

@@ -12,6 +12,14 @@ import entity.RaavareDTO;
 
 public class RaavareDAO implements IRaavareDAO {
 
+	public RaavareDAO() {
+		try { new MySQLAccess(); } 
+		catch (InstantiationException e) { e.printStackTrace(); }
+		catch (IllegalAccessException e) { e.printStackTrace(); }
+		catch (ClassNotFoundException e) { e.printStackTrace(); }
+		catch (SQLException e) { e.printStackTrace(); }
+	}
+	
 	@Override
 	public RaavareDTO getRaavare(int raavareId) throws DALException {
 		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM RAAVARE WHERE RAAVARE_ID = " + raavareId);
