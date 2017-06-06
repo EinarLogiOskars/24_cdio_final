@@ -1,10 +1,12 @@
-package dao;
+package daoimplements;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import daointerfaces.IBrugerDAO;
+import daointerfaces.IBrugerDAO.DALException;
 import dbConnection.MySQLAccess;
 import entity.BrugerDTO;
 import entity.passwordGenerator;
@@ -23,6 +25,39 @@ public class BrugerDAO implements IBrugerDAO{
 		catch (IllegalAccessException e) { e.printStackTrace(); }
 		catch (ClassNotFoundException e) { e.printStackTrace(); }
 		catch (SQLException e) { e.printStackTrace(); }
+	}
+	
+	@Override
+	public boolean validateBruger(BrugerDTO user) throws DALException{
+		
+		ResultSet rs = MySQLAccess.doQuery("Select name FROM users");
+		boolean userExists = false;
+		boolean validated = false;
+		try {
+			while(rs.next()){
+				if(rs.getString("name").equals(user.getUserName())){
+					userExists = true;
+					break;
+				}
+			}
+			if(userExists){
+				ResultSet rs2 = MySQLAccess.doQuery("Select password FROM users WHERE name = '" + user.getUserName() + "'");
+				while(rs2.next()){
+					if(user.getPassword().equals(rs2.getString("password"))){
+						validated = true;
+					}
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(validated == true)
+			return true;
+		else
+			return false;
+		
+		
 	}
 
 	@Override

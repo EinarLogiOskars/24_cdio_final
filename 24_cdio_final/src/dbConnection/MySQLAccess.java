@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import dao.IBrugerDAO.DALException;
+import daointerfaces.IBrugerDAO.DALException;
 import dbConnection.DbConstants;
 
 

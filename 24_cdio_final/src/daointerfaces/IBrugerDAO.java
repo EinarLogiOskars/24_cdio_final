@@ -1,10 +1,11 @@
-package dao;
+package daointerfaces;
 
 import java.util.ArrayList;
 import java.util.List;
 import entity.BrugerDTO;
 
 public interface IBrugerDAO {
+	boolean validateBruger(BrugerDTO user) throws DALException;
 	BrugerDTO getBruger(int userId) throws DALException;
 	List<BrugerDTO> getBrugerList() throws DALException;
 	void createBruger(BrugerDTO user) throws DALException;

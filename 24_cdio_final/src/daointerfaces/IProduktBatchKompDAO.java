@@ -1,8 +1,8 @@
-package dao;
+package daointerfaces;
 
 import java.util.List;
 
-import dao.IBrugerDAO.DALException;
+import daointerfaces.IBrugerDAO.DALException;
 import entity.ProduktBatchKompDTO;
 
 public interface IProduktBatchKompDAO {
