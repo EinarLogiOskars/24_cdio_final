@@ -40,4 +40,8 @@ $(document).ready(function() {
 		window.location.assign("adminIndex.html");
 	});
 	
+	$("#logoutbtn").click(function() {
+		window.location.assign("index.html");
+	});
+	
 });
