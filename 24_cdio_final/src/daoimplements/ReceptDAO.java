@@ -12,6 +12,14 @@ import entity.ReceptDTO;
 
 public class ReceptDAO  implements IReceptDAO {
 
+	public ReceptDAO() {
+		try { new MySQLAccess(); } 
+		catch (InstantiationException e) { e.printStackTrace(); }
+		catch (IllegalAccessException e) { e.printStackTrace(); }
+		catch (ClassNotFoundException e) { e.printStackTrace(); }
+		catch (SQLException e) { e.printStackTrace(); }
+	}
+	
 	@Override
 	public List<ReceptDTO> getReceptList() throws DALException {
 		// TODO Auto-generated method stub

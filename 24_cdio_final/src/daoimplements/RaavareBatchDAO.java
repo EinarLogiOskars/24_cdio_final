@@ -12,6 +12,14 @@ import entity.RaavareBatchDTO;
 
 public class RaavareBatchDAO implements IRaavareBatchDAO {
 
+	public RaavareBatchDAO() {
+		try { new MySQLAccess(); } 
+		catch (InstantiationException e) { e.printStackTrace(); }
+		catch (IllegalAccessException e) { e.printStackTrace(); }
+		catch (ClassNotFoundException e) { e.printStackTrace(); }
+		catch (SQLException e) { e.printStackTrace(); }
+	}
+	
 	@Override
 	public RaavareBatchDTO getRaavareBatch(int rbId) throws DALException {
 		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM RAAVAREBATCH WHERE RB_ID = " + rbId);
