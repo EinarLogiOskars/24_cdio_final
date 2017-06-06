@@ -12,6 +12,7 @@ public interface IBrugerDAO {
 	void updateBruger(BrugerDTO user) throws DALException;
 	void deleteBruger(int userId) throws DALException;
 	ArrayList<Integer> getUserIds() throws DALException;
+	String getRights(String username) throws DALException;
 
 
 	public class DALException extends Exception {
@@ -32,6 +33,9 @@ public interface IBrugerDAO {
 			super(e);
 		}
 	}
+
+
+
 
 
 	

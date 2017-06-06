@@ -153,4 +153,18 @@ public class BrugerDAO implements IBrugerDAO{
 		return userIds;
 	}
 
+	@Override
+	public String getRights(String username) throws DALException{
+		
+		ResultSet rs = MySQLAccess.doQuery("SELECT roles FROM users WHERE name = '" + username + "'");
+		String roles = "";
+		try {
+			while(rs.next()){
+				roles = rs.getString("roles");
+			}
+		} catch (SQLException e) {e.printStackTrace(); }
+		
+		return roles;
+	}
+
 }
