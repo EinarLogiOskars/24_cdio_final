@@ -22,7 +22,7 @@ $(document).ready(function() {
 				}
 				else {
 					$("#invld").css("visibility", "hidden");
-					window.location.assign("NewPage.html");
+					window.location.assign("home.html");
 					var name = sessionStorage.getItem("username");
 					console.log(name);
 				}

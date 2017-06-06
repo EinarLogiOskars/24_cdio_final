@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<!-- 
+<link rel="stylesheet" type="text/css" href="createUser.css" />
+-->
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript" src="jquery.serialize-object.min.js"></script>
+<script src="createUser.js"></script>
+<link rel="stylesheet" type="text/css" href="createUser.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://www.w3schools.com/lib/w3-colors-highway.css">
+<meta charset="UTF-8">
+</head>
+
+<body>
+	<form id="CUForm" class="w3-margin">
+
+		<label>UserID<input type="number" id="userId" name="userId"
+			class="w3-input" placeholder="Choose from 11 - 89"></label> <label
+			class="w3-margin-bottom">Username<input id="userName"
+			type="text" name="userName" class="w3-input"></label> <label>Initials<input
+			id="ini" type="text" name="ini" class="w3-input"></label> <label>CPR
+			nr<input id="cpr" type="text" name="cpr" class="w3-input"
+			placeholder="XXXXXX-XXXX">
+		</label>
+		<ul>
+			<li><label>Roles: </label>
+			<li><label><input type="checkbox" name="roles[]"
+					value="Admin" class="w3-radio"> Admin</label>
+			<li><label><input type="checkbox" name="roles[]"
+					value="Operator" class="w3-radio"> Operator</label>
+			<li><label><input type="checkbox" name="roles[]"
+					value="Foreman" class="w3-radio"> Foreman</label>
+			<li><label><input type="checkbox" name="roles[]"
+					value="Pharmacist" class="w3-radio"> Pharmacist</label>
+		</ul>
+
+		<!-- <input type="text" id="userName" name="userName" class="formInput" placeholder="Username">
+			<input type="text" id="ini" name="ini" class="formInput" placeholder="Initials">
+			<input type="text" id="password" name="password" class="formInput" placeholder="Password">
+			<input type="text" id="cpr" name="cpr" class="formInput" placeholder="CPR number">
+            <input type="text" id= "Admin" name="roles[]" class="formInput" placeholder="Admin">
+            <input type="text" id= "Operator" name="roles[]" class="formInput" placeholder="Operator">  
+            <input type="text" id= "Foreman" name="roles[]" class="formInput" placeholder="Foreman">
+            <input type="text" id= "Pharmacist" name="roles[]" class="formInput" placeholder="Pharmacist"> -->
+
+
+		<input type="submit" value="Create user" id="CUButton"
+			class="w3-btn w3-highway-red w3-text-white">
+
+
+	</form>
+</body>
+</html>

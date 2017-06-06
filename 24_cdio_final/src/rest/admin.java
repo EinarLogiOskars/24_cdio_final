@@ -62,7 +62,7 @@ public class admin {
 	
 	
 	@DELETE
-	@Path("/{userId}")
+	@Path("/delete/{userId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public boolean deleteUser(@PathParam("userId") int userId){
 		try {

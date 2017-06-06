@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import daointerfaces.IBrugerDAO;
-import daointerfaces.IBrugerDAO.DALException;
 import dbConnection.MySQLAccess;
 import entity.BrugerDTO;
 import entity.passwordGenerator;

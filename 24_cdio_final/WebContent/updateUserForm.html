@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<!-- 
+<link rel="stylesheet" type="text/css" href="createUser.css" />
+-->
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript" src="jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="updateUser.js"></script>
+<link rel="stylesheet" type="text/css" href="updateUser.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://www.w3schools.com/lib/w3-colors-highway.css">
+<meta charset="UTF-8">
+</head>
+
+<body>
+	<form id="UUForm" class="w3-margin">
+
+		<label>UserID<input type="number" id="userId" name="userId"
+			class="w3-input" disabled></label> <label class="w3-margin-bottom">Username<input
+			id="userName" type="text" name="userName" class="w3-input"></label> <label>Initials<input
+			id="ini" type="text" name="ini" class="w3-input"></label> <label>Password
+			<input id="password" type="text" name="password" class="w3-input">
+		</label> <label>CPR nr<input id="cpr" type="text" name="cpr"
+			class="w3-input">
+		</label>
+		<ul>
+			<li><label>Roles: </label>
+			<li><label><input type="checkbox" name="roles[]"
+					value="Admin" class="w3-radio" id="admin"> Admin</label>
+			<li><label><input type="checkbox" name="roles[]"
+					value="Operator" class="w3-radio" id="operator"> Operator</label>
+			<li><label><input type="checkbox" name="roles[]"
+					value="Foreman" class="w3-radio" id="foreman"> Foreman</label>
+			<li><label><input type="checkbox" name="roles[]"
+					value="Pharmacist" class="w3-radio" id="pharmacist">
+					Pharmacist</label>
+		</ul>
+
+
+		<input type="submit" value="Update user" id="UUButton"
+			class="w3-btn w3-highway-red w3-text-white">
+
+		<div id="UUData" class="w3-container">
+
+		</div>
+	</form>
+</body>
+</html>

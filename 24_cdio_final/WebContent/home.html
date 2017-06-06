@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="S A Bokhari">
+<meta name="description"
+	content="Slide In/Out Navigation with Pushed Content">
+<meta name="keywords"
+	content="Slide In/Out Navigation with Pushed Content">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript" src="jquery.serialize-object.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="home.js"></script>
+
+<title>Super cool menu-bar - made by me, and alot of youtube</title>
+
+</head>
+<body>
+	<input type="checkbox" id="menuToggle">
+	<label for="menuToggle" class="menu-icon" style="margin-left: 5px"><span
+		class="glyphicon glyphicon-menu-hamburger"></span></label>
+	<header>
+		<div id="brand">
+			<h1 id="welcomeh1" class="centered">Welcome, </h1>
+		</div>
+	</header>
+
+	<nav class="menu">
+		<ul>
+			<li><button type="button" class="btn btn-primary btn-block">Home</button></li>
+			<li><button type="button" class="btn btn-primary btn-block"
+					id="profile">Profile</button></li>
+		</ul>
+		<ul id="Pharmacist">
+			<li><button class="btn btn-primary btn-block"
+					id="createMaterial">Create material</button></li>
+			<li><button class="btn btn-primary btn-block"
+					id="changeMaterial">Change material</button></li>
+			<li><button class="btn btn-primary btn-block"
+					id="createPrescription">Create prescription</button></li>
+			<li><button class="btn btn-primary btn-block"
+					id="showPrescriptions">Show prescriptions</button></li>
+		</ul>
+		<ul id="Foreman">
+			<li><button class="btn btn-primary btn-block" id="createRMB">Create
+					raw material batch</button></li>
+
+			<li><button class="btn btn-primary btn-block" id="showRMB">Show
+					raw material batches</button></li>
+			<li><button class="btn btn-primary btn-block" id="createPB">Create
+					product batch</button></li>
+			<li><button class="btn btn-primary btn-block" id="showPB">Show
+					product batches</button></li>
+		</ul>
+		<ul id="admin">
+			<li><button class="btn btn-primary btn-block" id="adminbtn">Admin
+					tools</button></li>
+		</ul>
+	</nav>
+	<div class="content" id="showcontent"></div>
+
+
+</body>
+</html>

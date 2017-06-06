@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	console.log("this is the NewPage javascript");
+	console.log("this is the home page javascript");
 	
 	var name = sessionStorage.getItem("username");
 	$("#welcomeh1").append(name);
@@ -11,9 +11,8 @@ $(document).ready(function() {
 		success: function(resp){
 			console.log('This is the Success method')
 			roles = resp
-			console.log(resp)
 			rights(roles);
-			$("#welcomeh1").append(", and you have " + roles + " privileges.");
+			console.log(resp)
 		},
 		error: function(resp){
 			console.log('This is the ERROR method')
@@ -23,20 +22,22 @@ $(document).ready(function() {
 	
 	function rights(roles) {
 		if (roles.indexOf("Admin") != -1) {
-			return roles = "Admin";
+			$("#admin").css("visibility", "visible")
+			$("#Pharmacist").css("visibility", "visible")
+			$("#Foreman").css("visibility", "visible")
 		}
 		else if (roles.indexOf("Pharmacist") != -1) {
-			return roles = "Pharmacist";
+			$("#Pharmacist").css("visibility", "visible")
+			$("#Foreman").css("visibility", "visible")
 		}
 		else if (roles.indexOf("Foreman") != -1) {
-			return roles = "Foreman";
+			$("#Foreman").css("visibility", "visible")
 		}
-		else if (roles.indexOf("Operator") != -1) {
-			return roles = "Operator";
-		}
-		else {
-			return roles = "Error... no roles";
-		}
+	
 	}
+	
+	$("#adminbtn").click(function() {
+		window.location.assign("adminIndex.html");
+	});
 	
 });
