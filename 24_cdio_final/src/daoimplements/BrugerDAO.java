@@ -15,8 +15,8 @@ import entity.passwordGenerator;
 
 public class BrugerDAO implements IBrugerDAO{
 
-
-
+	
+	
 	static ArrayList<BrugerDTO> userList = new ArrayList<BrugerDTO>();
 
 	public BrugerDAO() {
