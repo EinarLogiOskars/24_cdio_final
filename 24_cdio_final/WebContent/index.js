@@ -6,7 +6,8 @@ $(document).ready(function() {
 		event.preventDefault();
 		
 		var data = $("#loginForm").serializeObject();
-		
+		var un = data['userName'];
+		sessionStorage.setItem("username", un);
 		
 		$.ajax({
 			url: "http://localhost:8080/24_cdio_final/rest/login/logincheck",
@@ -22,6 +23,8 @@ $(document).ready(function() {
 				else {
 					$("#invld").css("visibility", "hidden");
 					window.location.assign("NewPage.html");
+					var name = sessionStorage.getItem("username");
+					console.log(name);
 				}
 			},
 			error: function(resp){

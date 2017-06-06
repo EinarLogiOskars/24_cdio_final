@@ -32,4 +32,7 @@ public interface IBrugerDAO {
 			super(e);
 		}
 	}
+
+
+	
 }

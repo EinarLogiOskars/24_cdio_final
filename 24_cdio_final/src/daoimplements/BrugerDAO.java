@@ -153,5 +153,4 @@ public class BrugerDAO implements IBrugerDAO{
 		return userIds;
 	}
 
-
 }
