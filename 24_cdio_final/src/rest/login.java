@@ -21,12 +21,8 @@ public class login {
 	public boolean loginCheck(BrugerDTO user) {
 		boolean validated = false;
 		try {
-			if(us.validateBruger(user))
-				validated = true;
-		} catch (DALException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			if(us.validateBruger(user)){validated = true; }
+		} catch (DALException e) {e.printStackTrace(); }
 		
 		return validated;
 	}
