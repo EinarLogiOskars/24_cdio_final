@@ -5,11 +5,11 @@ $(document).ready(function() {
 	});
 
 	$("#updateMaterial").click(function() {
-		$("#div2").load("updateUser.html");
+		$("#div2").load("updateMaterial.html");
 	});	
 
-	$("#deleteMaterial").click(function() {
-		$("#div2").load("deleteUser.html");
+	$("#showMaterial").click(function() {
+		$("#div2").load("showMaterial.html");
 	});
 	
 	$("#createPrescription").click(function() {
