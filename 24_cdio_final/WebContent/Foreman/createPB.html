@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<!-- 
+<link rel="stylesheet" type="text/css" href="createUser.css" />
+-->
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript" src="jquery.serialize-object.min.js"></script>
+<script src="createUser.js"></script>
+<link rel="stylesheet" type="text/css" href="createUser.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://www.w3schools.com/lib/w3-colors-highway.css">
+<meta charset="UTF-8">
+</head>
+
+<body>
+	<form id="PBForm" class="w3-margin">
+
+		<label>Productbatch ID<input type="number" id="pBId"
+			name="pBId" class="w3-input" placeholder="Choose id"></label> 			
+			<label
+			class="w3-margin-bottom">Prescription ID
+			<input id="prescriptionId"
+			type="text" name="prescriptionIdName" class="w3-input"
+			placeholder="maximum 20 letters"></label> 
+			<label>Status<input
+			id="status" type="number" name="status" class="w3-input"
+			placeholder="maximum 20 letters"></label> 
+			<label>User ID <input
+			id="userName" type="text" name="userId" class="w3-input"
+			placeholder="maximum 20 letters"></label> 
+			
+
+<label>Materialbatch ID <input type="number" id="materialBId"
+			name="materialBId" class="w3-input" placeholder="Choose id" ></label>
+
+<label>Tara<input type="number" id="taraWeight"
+			name="tara" class="w3-input" placeholder="max 4 decimels"></label>
+
+<label>Netto<input type="number" id="nettoWeight"
+			name="nettoWeight" class="w3-input" placeholder="max 4 decimels"></label>
+
+<input type="submit"
+			value="Create Product Batch" id="CPBButton"
+			class="w3-btn w3-highway-red w3-text-white">
+			
+	</form>
+</body>
+</html>
