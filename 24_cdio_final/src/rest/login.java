@@ -34,7 +34,6 @@ public class login {
 	@Consumes(MediaType.TEXT_PLAIN)
 	public String getRoles(@PathParam("username") String username) {
 		String roles = "";
-		
 		try {roles = us.getRights(username);
 		} catch (DALException e) {e.printStackTrace(); }
 		return roles;
