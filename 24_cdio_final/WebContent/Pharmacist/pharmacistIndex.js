@@ -1,23 +1,27 @@
 $(document).ready(function() {
 	
-	$("#createuser").on("click", function() {
-		$("#div2").load("createUser.html");
+	$("#createMaterial").on("click", function() {
+		$("#div2").load("createMaterial.html");
 	});
 
-	$("#updateuser").click(function() {
+	$("#updateMaterial").click(function() {
 		$("#div2").load("updateUser.html");
 	});	
 
-	$("#deleteuser").click(function() {
+	$("#deleteMaterial").click(function() {
 		$("#div2").load("deleteUser.html");
 	});
 	
-	$("#showusers").click(function() {
-		$("#div2").load("showUsers.html");
+	$("#createPrescription").click(function() {
+		$("#div2").load("createPrescription.html")
+	});
+	
+	$("#showPrescriptions").click(function() {
+		$("#div2").load("showPrescriptions.html");
 	});
 	
 	$("#exitbtn").click(function() {
-		window.location.assign("Home/home.html");
+		window.location.assign("home.html");
 	});
 
 //	$("#showusers").on("click", function(){
