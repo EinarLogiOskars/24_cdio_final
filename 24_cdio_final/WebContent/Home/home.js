@@ -37,11 +37,19 @@ $(document).ready(function() {
 	}
 	
 	$("#adminbtn").click(function() {
-		window.location.assign("adminIndex.html");
+		window.location.assign("../Admin/adminIndex.html");
+	});
+	
+	$("#pharmbtn").click(function(){
+		window.location.assign("../Pharmacist/pharmacistIndex.html");
+	});
+	
+	$("#foremanbtn").click(function(){
+		window.location.assign("../Foreman/foremanIndex.html");
 	});
 	
 	$("#logoutbtn").click(function() {
-		window.location.assign("index.html");
+		window.location.assign("../index.html");
 	});
 	
 });

@@ -8,8 +8,8 @@ $(document).ready(function() {
 		$("#div2").load("updateMaterial.html");
 	});	
 
-	$("#showMaterial").click(function() {
-		$("#div2").load("showMaterial.html");
+	$("#showMaterials").click(function() {
+		$("#div2").load("showMaterials.html");
 	});
 	
 	$("#createPrescription").click(function() {
@@ -21,7 +21,7 @@ $(document).ready(function() {
 	});
 	
 	$("#exitbtn").click(function() {
-		window.location.assign("home.html");
+		window.location.assign("../Home/home.html");
 	});
 
 //	$("#showusers").on("click", function(){

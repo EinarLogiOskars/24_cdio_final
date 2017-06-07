@@ -19,16 +19,20 @@ $(document).ready(function() {
 	function loadtable(){
 		
 		$('<tr>').append(
-				$('<th>').text("Material ID"),
-				$('<th>').text("Material Name"),
-				$('<th>').text("Supplier")
+				$('<th>').text("Prescription ID"),
+				$('<th>').text("Prescription Name"),
+				$('<th>').text("Material IDs contained"),
+				$('<th>').text("nonNetto"),
+				$('<th>').text("Tolerance")
 		).appendTo("#table");
 		
-		$.each(materials, function(i, item) {
+		$.each(prescriptions, function(i, item) {
 			$('<tr>').append(
-					$('<td>').text(item.materialId),
-					$('<td>').text(item.materialName),
-					$('<td>').text(item.supplier)
+					$('<td>').text(item.prescriptionId),
+					$('<td>').text(item.prescriptionName),
+					$('<td>').text(item.prescriptionMaterials),
+					$('<td>').text(item.nonNetto),
+					$('<td>').text(item.tolerance)
 			).appendTo('#table');
 		});
 	}

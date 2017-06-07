@@ -17,7 +17,7 @@ $(document).ready(function() {
 	});
 	
 	$("#exitbtn").click(function() {
-		window.location.assign("Home/home.html");
+		window.location.assign("../Home/home.html");
 	});
 
 //	$("#showusers").on("click", function(){
