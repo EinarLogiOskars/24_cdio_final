@@ -4,7 +4,7 @@ $(document).ready(function() {
 	
 	$.ajax({
 		type: "GET",
-		url: "http://localhost:8080/24_cdio_final/rest/admin/showusers",
+		url: "some url",
 		success: function(data) {
 			users = data;
 			console.log("I am the load material batch success method.");
@@ -24,7 +24,7 @@ $(document).ready(function() {
 				$('<th>').text("Amount")
 		).appendTo("#table");
 		
-		$.each(users, function(i, item) {
+		$.each(materials, function(i, item) {
 			$('<tr>').append(
 					$('<td>').text(item.materialBId),
 					$('<td>').text(item.materialId),
