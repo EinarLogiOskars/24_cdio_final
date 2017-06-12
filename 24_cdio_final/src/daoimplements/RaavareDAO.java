@@ -22,10 +22,10 @@ public class RaavareDAO implements IRaavareDAO {
 	
 	@Override
 	public RaavareDTO getRaavare(int raavareId) throws DALException {
-		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM RAAVARE WHERE RAAVARE_ID = " + raavareId);
+		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM materials WHERE materialID = " + raavareId);
 	    try {
 	    	if (!rs.first()) throw new DALException("Raavare " + raavareId + " findes ikke");
-	    	return new RaavareDTO(rs.getInt("RAAVARE_ID"), rs.getString("RAAVARE_NAVN"), rs.getString("LEVERANDOER"));
+	    	return new RaavareDTO(rs.getInt("materialID"), rs.getString("name"), rs.getString("supplier"));
 	    }
 	    catch (SQLException e) {throw new DALException(e); }
 	}
@@ -54,8 +54,8 @@ public class RaavareDAO implements IRaavareDAO {
 	@Override
 	public void updateRaavare(RaavareDTO raavare) throws DALException {
 		MySQLAccess.doUpdate(
-				"UPDATE RAAVARE SET RAAVARE_ID = " + raavare.getRaavareId() + ", RAAVARE_NAVN =  '" + raavare.getRaavareNavn() + 
-				"', LEVERANDOER = '" + raavare.getLeverandoer() + "'  WHERE RAAVARE_ID = " + raavare.getRaavareId()
+				"UPDATE materials SET materialID = " + raavare.getRaavareId() + ", name =  '" + raavare.getRaavareNavn() + 
+				"', supplier = '" + raavare.getLeverandoer() + "'  WHERE materialID = " + raavare.getRaavareId()
 		);
 	}
 

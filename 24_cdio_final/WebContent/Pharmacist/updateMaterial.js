@@ -4,9 +4,10 @@ $(document).ready(function() {
 
 	//	Gets all materialId's from the database.
 	$.ajax({
-		url: "http://localhost:8080/24_cdio_final/rest/admin/userids",
+		url: "http://localhost:8080/24_cdio_final/rest/pharmacist/matids",
 		method: "GET",
 		success: function(data) {
+			console.log("Get matIDs success function");
 			numbers = data;
 		},
 		error: function(error) {
@@ -16,21 +17,22 @@ $(document).ready(function() {
 	});
 
 
-	$("#UButton").click(function() {	
+	$("#MButton").click(function() {	
 		if(validateID()){
 			$("#UMDiv").load("updateMaterialForm.html");
-			var userId = parseInt($('#materialIDChosen').val());
-			var user;
+			var matId = parseInt($('#materialIDChosen').val());
+			var mat;
 			$.ajax({
-				url: "http://localhost:8080/24_cdio_final/rest/admin/" + userId,
+				url: "http://localhost:8080/24_cdio_final/rest/pharmacist/" + matId,
 				method: "GET",
-				data: user,
+				data: mat,
 				contentType: "application/json",
 				success: function(data) {
-					user = data;
-					$("#materialId").val(user.userId);
-					$("#materialName").val(user.userName);
-					$("#supplier").val(user.ini);
+					mat = data;
+					console.log(mat);
+					$("#materialId").val(mat.raavareId);
+					$("#materialName").val(mat.raavareNavn);
+					$("#supplier").val(mat.leverandoer);
 					$('#UMForm').submit(function(event){
 						console.log("Start of update material submit")
 						//Prevent reset on form when an input is not correct...
@@ -43,7 +45,7 @@ $(document).ready(function() {
 							var data = $('#UMForm').serializeObject();
 					
 							$.ajax({
-								url: "http://localhost:8080/24_cdio_final/rest/admin/updateuser",
+								url: "http://localhost:8080/24_cdio_final/rest/pharmacist/updatemat",
 								data: JSON.stringify(data),
 								contentType: "application/json",
 								method: 'POST',
@@ -118,7 +120,7 @@ $(document).ready(function() {
 				return false;
 			} 
 			else {
-				if (confirm("Are all the information correct?") == true) {	
+				if (confirm("Is the information correct?") == true) {	
 					return true;
 				}
 				else {
