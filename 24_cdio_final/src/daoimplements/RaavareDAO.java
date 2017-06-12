@@ -33,12 +33,12 @@ public class RaavareDAO implements IRaavareDAO {
 	@Override
 	public List<RaavareDTO> getRaavareList() throws DALException {
 		List<RaavareDTO> list = new ArrayList<RaavareDTO>();
-		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM RAAVARE");
+		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM materials");
 		try
 		{
 			while (rs.next()) 
 			{
-				list.add(new RaavareDTO(rs.getInt("RAAVARE_ID"), rs.getString("RAAVARE_NAVN"), rs.getString("LEVERANDOER")));
+				list.add(new RaavareDTO(rs.getInt("materialID"), rs.getString("name"), rs.getString("supplier")));
 			}
 		}
 		catch (SQLException e) { throw new DALException(e); }
@@ -47,9 +47,7 @@ public class RaavareDAO implements IRaavareDAO {
 
 	@Override
 	public void createRaavare(RaavareDTO raavare) throws DALException {
-		MySQLAccess.doUpdate(
-				"INSERT INTO RAAVARE(RAAVARE_ID, RAAVARE_NAVN, LEVERANDOER) VALUES " +
-						"(" + raavare.getRaavareId() + ", '" + raavare.getRaavareNavn() + "', '" + raavare.getLeverandoer() + "')"
+		MySQLAccess.doUpdate("INSERT INTO materials(name, supplier) VALUES('" + raavare.getRaavareNavn() + "', '" + raavare.getLeverandoer() + "')"
 						);
 	}
 

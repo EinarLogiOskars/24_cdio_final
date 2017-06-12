@@ -2,12 +2,20 @@ package entity;
 
 public class RaavareDTO 
 {
+	@Override
+	public String toString() {
+		return "RaavareDTO [raavareId=" + raavareId + ", raavareNavn=" + raavareNavn + ", leverandoer=" + leverandoer
+				+ "]";
+	}
 	/** raavare id i området 1-99999999 vælges af brugerne */
 	int raavareId;                     
 	/** min. 2 max. 20 karakterer */
 	String raavareNavn;                
 	/** min. 2 max. 20 karakterer */
 	String leverandoer;
+	public RaavareDTO() {
+
+	}
 	public RaavareDTO(int raavareId, String raavareNavn, String leverandoer) {
 		this.raavareId = raavareId;
 		this.raavareNavn = raavareNavn;
