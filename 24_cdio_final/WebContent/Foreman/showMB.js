@@ -4,7 +4,7 @@ $(document).ready(function() {
 	
 	$.ajax({
 		type: "GET",
-		url: "http://localhost:8080/24_cdio_final/rest/foreman/showproductbatches",
+		url: "http://localhost:8080/24_cdio_final/rest/foreman/showmaterialbatches",
 		success: function(data) {
 			materialbatches = data;
 			console.log("I am the load material batch success method.");
