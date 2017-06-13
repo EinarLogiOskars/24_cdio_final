@@ -12,14 +12,18 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import daoimplements.RaavareDAO;
+import daoimplements.ReceptDAO;
 import daointerfaces.IBrugerDAO.DALException;
 import daointerfaces.IRaavareDAO;
+import daointerfaces.IReceptDAO;
 import entity.RaavareDTO;
+import entity.ReceptDTO;
 
 @Path("/pharmacist")
 public class pharmacist {
 	
 	IRaavareDAO rv = new RaavareDAO();
+	IReceptDAO rp = new ReceptDAO();
 	
 	
 	@POST
@@ -79,5 +83,30 @@ public class pharmacist {
 		} catch (DALException e) { e.printStackTrace(); }
 		return mat;
 	}
+	
+	//Added receipts create and show methods...
+	
+	@POST
+	@Path("/createreceipt")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public boolean createReceipt(ReceptDTO recept) {
+		try {
+			rp.createRecept(recept);
+		} catch (DALException e) { e.printStackTrace(); }
+		return true;
+	}
+	
+	@GET
+	@Path("/showreceipts")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<ReceptDTO> getReceiptList() {
+		List<ReceptDTO> receipts = null;
+		try {
+			receipts = rp.getReceptList();
+		} catch (DALException e) { e.printStackTrace(); }
+		
+		return receipts;
+	}
+	
 
 }
