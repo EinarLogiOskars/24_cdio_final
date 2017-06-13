@@ -1,16 +1,16 @@
 $(document).ready(function() {
 	
-	$("#CMBForm").submit(function(event) {
+	$("#CPBForm").submit(function(event) {
 		
 		//Prevent reset on form when an input is not correct...
 		event.preventDefault();
 		
 		if (validateForm() == true) {
 
-			var data = $('#CMBForm').serializeObject();
+			var data = $('#CPBForm').serializeObject();
 
 			$.ajax({
-				url: "http://localhost:8080/24_cdio_final/rest/foreman/creatematerialbatch",
+				url: "http://localhost:8080/24_cdio_final/rest/foreman/createproductbatch",
 				data: JSON.stringify(data),
 				contentType: "application/json",
 				method: 'POST',
@@ -24,7 +24,7 @@ $(document).ready(function() {
 				}
 			});
 			//Simple javascript to reset...
-			document.getElementById('CMBForm').reset();
+			document.getElementById('CPBForm').reset();
 			
 			// Don't submit the form again
 			return false;

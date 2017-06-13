@@ -17,21 +17,10 @@
 <body>
 	<form id="PBForm" class="w3-margin">
 
-		<label>Productbatch ID<input type="number" id="pBId" name="pbId" class="w3-input" placeholder="Choose id"></label> 	
+		<label>Productbatch ID<input type="number" id="pbID" name="pbID" class="w3-input" placeholder="Choose PB id" step="1" min="1" max="99999999"></label> 	
 				
-		<label class="w3-margin-bottom">Prescription ID <input id="prescriptionId" type="text" name="receptId" class="w3-input" placeholder="maximum 20 letters"></label> 
-			
-		<label>Status<input id="status" type="number" name="status" class="w3-input" placeholder="maximum 20 letters"></label> 
+		<label class="w3-margin-bottom">Receipt ID <input id="prescriptionId" type="number" name="receiptId" class="w3-input" step="1" min="1" max="99999999"></label> 
 		
-		<label>User ID <input id="userName" type="text" name="userId" class="w3-input" placeholder="maximum 20 letters"></label> 
-			
-
-		<label>Materialbatch ID <input type="number" id="materialBId" name="materialBId" class="w3-input" placeholder="Choose id" ></label>
-
-		<label>Tara<input type="number" id="taraWeight" name="tara" class="w3-input" placeholder="max 4 decimels"></label>
-
-		<label>Netto<input type="number" id="nettoWeight" name="nettoWeight" class="w3-input" placeholder="max 4 decimels"></label>
-
 		<input type="submit" value="Create Product Batch" id="CPBButton" class="w3-btn w3-highway-red w3-text-white">
 			
 	</form>

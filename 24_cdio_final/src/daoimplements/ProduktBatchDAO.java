@@ -21,11 +21,11 @@ public class ProduktBatchDAO implements IProduktBatchDAO{
 	}
 	
 	@Override
-	public ProduktBatchDTO getProduktBatch(int pbId) throws DALException {
-		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM PRODUKTBATCH WHERE PB_ID = " + pbId);
+	public ProduktBatchDTO getProduktBatch(int pbID) throws DALException {
+		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM productbatch WHERE pbID = " + pbID);
 	    try {
-	    	if (!rs.first()) throw new DALException("Produktbatch " + pbId + " findes ikke");
-	    	return new ProduktBatchDTO (rs.getInt("PB_ID"), rs.getInt("STATUS"), rs.getInt("RECEPT_ID"));
+	    	if (!rs.first()) throw new DALException("productbatch " + pbID + " findes ikke");
+	    	return new ProduktBatchDTO (rs.getInt("pbID"), rs.getInt("status"), rs.getInt("receiptID"));
 	    }
 	    catch (SQLException e) {throw new DALException(e); }
 	}
@@ -33,12 +33,12 @@ public class ProduktBatchDAO implements IProduktBatchDAO{
 	@Override
 	public List<ProduktBatchDTO> getProduktBatchList() throws DALException {
 		List<ProduktBatchDTO> list = new ArrayList<ProduktBatchDTO>();
-		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM produktbatch");
+		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM productbatch");
 		try
 		{
 			while (rs.next()) 
 			{
-				list.add(new ProduktBatchDTO(rs.getInt("PB_ID"), rs.getInt("RECEPT_ID"), rs.getInt("STATUS")));
+				list.add(new ProduktBatchDTO(rs.getInt("pbID"), rs.getInt("receiptID"), rs.getInt("status")));
 			}
 		}
 		catch (SQLException e) { throw new DALException(e); }
@@ -48,8 +48,8 @@ public class ProduktBatchDAO implements IProduktBatchDAO{
 	@Override
 	public void createProduktBatch(ProduktBatchDTO produktbatch) throws DALException {
 		MySQLAccess.doUpdate(
-				"INSERT INTO PRODUKTBATCH(PB_ID, RECEPT_ID, STATUS) VALUES " +
-						"(" + produktbatch.getPbId() + ", " + produktbatch.getReceptId() + ", " + produktbatch.getStatus() + ")"
+				"INSERT INTO productbatch(pbID, receiptID, status) VALUES " +
+						"(" + produktbatch.getPbId() + ", " + produktbatch.getReceptId() + ", " + 0 + ")"
 				);
 	}
 
@@ -57,8 +57,8 @@ public class ProduktBatchDAO implements IProduktBatchDAO{
 	public void updateProduktBatch(ProduktBatchDTO produktbatch) throws DALException {
 		// TODO Auto-generated method stub
 		MySQLAccess.doUpdate(
-				"UPDATE PRODUKTBATCH SET PB_ID = " + produktbatch.getPbId() +  ", STATUS = " + produktbatch.getStatus() + 
-				", RECEPT_ID =  " + produktbatch.getReceptId() + " WHERE PB_ID = " +
+				"UPDATE productbatch SET pbID = " + produktbatch.getPbId() +  ", status = " + produktbatch.getStatus() + 
+				", receiptID =  " + produktbatch.getReceptId() + " WHERE pbID = " +
 				produktbatch.getPbId()
 		);
 	}
