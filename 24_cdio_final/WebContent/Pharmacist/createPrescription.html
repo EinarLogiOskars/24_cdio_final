@@ -15,45 +15,11 @@
 </head>
 
 <body>
-	<form id="CUForm" class="w3-margin">
+	<form id="CRForm" class="w3-margin">
+		
+		<label class="w3-margin-bottom">receipt Name<input id="receptNavn" type="text" name="receptNavn" class="w3-input"></label>
 
-		<label>Prescription ID<input type="number" id="prescriptionId" name="receptId" class="w3-input" placeholder="Choose id for the prescription"></label> 
-		
-		<label class="w3-margin-bottom">Prescription Name<input id="receptNavn" type="text" name="prescriptionName" class="w3-input"></label>
-		
-		<label>Material IDs<input id="materials" type="text" name="raavareId" class="w3-input"></label>
-			
-		<label>nonNetto<input id="nonNetto" type="text" name="nomNetto" class="w3-input" placeholder="Between 0.05 - 20.0 kg"></label>
-		
-		<label>tolerance<input id="tolerance" type="text" name="tolerance" class="w3-input" placeholder="Between 0.1 - 10.0 %"></label>
-		
-		<!--  
-		
-		<ul>
-			<li><label>Roles: </label>
-			<li><label><input type="checkbox" name="roles[]"
-					value="Admin" class="w3-radio"> Admin</label>
-			<li><label><input type="checkbox" name="roles[]"
-					value="Operator" class="w3-radio"> Operator</label>
-			<li><label><input type="checkbox" name="roles[]"
-					value="Foreman" class="w3-radio"> Foreman</label>
-			<li><label><input type="checkbox" name="roles[]"
-					value="Pharmacist" class="w3-radio"> Pharmacist</label>
-		</ul>
-		
-		-->
-
-		<!-- <input type="text" id="userName" name="userName" class="formInput" placeholder="Username">
-			<input type="text" id="ini" name="ini" class="formInput" placeholder="Initials">
-			<input type="text" id="password" name="password" class="formInput" placeholder="Password">
-			<input type="text" id="cpr" name="cpr" class="formInput" placeholder="CPR number">
-            <input type="text" id= "Admin" name="roles[]" class="formInput" placeholder="Admin">
-            <input type="text" id= "Operator" name="roles[]" class="formInput" placeholder="Operator">  
-            <input type="text" id= "Foreman" name="roles[]" class="formInput" placeholder="Foreman">
-            <input type="text" id= "Pharmacist" name="roles[]" class="formInput" placeholder="Pharmacist"> -->
-
-
-		<input type="submit" value="Create prescription" id="CPButton"
+		<input type="submit" value="Create receipt" id="CRButton"
 			class="w3-btn w3-highway-red w3-text-white">
 
 	</form>
