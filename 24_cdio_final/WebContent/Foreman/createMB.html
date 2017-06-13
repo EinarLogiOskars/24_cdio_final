@@ -6,7 +6,7 @@
 -->
 <script type="text/javascript" src="jquery-3.1.1.js"></script>
 <script type="text/javascript" src="jquery.serialize-object.min.js"></script>
-<script src="createUser.js"></script>
+<script src="createMB.js"></script>
 <link rel="stylesheet" type="text/css" href="createUser.css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
@@ -17,16 +17,13 @@
 <body>
 	<form id="CMBForm" class="w3-margin">
 
-		<label>Material batch ID<input type="number" id="materialBId"
-			name="rbId" class="w3-input" placeholder="Choose id"></label>
+		<label>Material batch ID<input type="number" id="materialBId" name="rbId" class="w3-input" placeholder="Choose id" step="1" min="1" max="99999999"></label>
 			
-		<label class="w3-margin-bottom">Material ID<input
-			id="raavareId" type="text" name="materialId" class="w3-input" placeholder="maximum 20 letters"></label>
-			<label>Amount<input
-			id="amount" type="number" name="maengde" class="w3-input" placeholder="maximum 20 letters"></label> 
+		<label class="w3-margin-bottom">Material ID<input id="raavareId" type="text" name="raavareId" class="w3-input" placeholder="maximum 20 letters" step="1" min="1" max="99999999"></label>
+			
+		<label>Amount<input id="amount" type="number" name="maengde" class="w3-input" placeholder="maximum 20 letters" step="0.1" min="0.1" max="99999999"></label> 
 
-		<input type="submit" value="Create material" id="CUButton"
-			class="w3-btn w3-highway-red w3-text-white">
+		<input type="submit" value="Create material batch" id="CMBButton" class="w3-btn w3-highway-red w3-text-white">
 
 
 	</form>

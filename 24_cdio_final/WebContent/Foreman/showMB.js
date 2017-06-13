@@ -1,12 +1,12 @@
 $(document).ready(function() {
 	
-	var users;
+	var materialbatches;
 	
 	$.ajax({
 		type: "GET",
-		url: "some url",
+		url: "http://localhost:8080/24_cdio_final/rest/foreman/showproduktbatches",
 		success: function(data) {
-			users = data;
+			materialbatches = data;
 			console.log("I am the load material batch success method.");
 			loadtable();
 		},
@@ -24,7 +24,7 @@ $(document).ready(function() {
 				$('<th>').text("Amount")
 		).appendTo("#table");
 		
-		$.each(materials, function(i, item) {
+		$.each(materialbatches, function(i, item) {
 			$('<tr>').append(
 					$('<td>').text(item.materialBId),
 					$('<td>').text(item.materialId),

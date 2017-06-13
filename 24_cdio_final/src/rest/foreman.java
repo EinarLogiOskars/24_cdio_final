@@ -20,6 +20,7 @@ import entity.ProduktBatchDTO;
 import entity.RaavareBatchDTO;
 import entity.RaavareDTO;
 
+@Path("/foreman")
 public class foreman {
 
 	IProduktBatchDAO pb = new ProduktBatchDAO();
@@ -47,7 +48,7 @@ public class foreman {
 	 * @return productbatches
 	 */
 	@GET
-	@Path("/showproduktbatches")
+	@Path("/showproductbatches")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<ProduktBatchDTO> getProductBatchList() {
 		List<ProduktBatchDTO> productbatches = null;
