@@ -24,13 +24,13 @@ public class ReceptDAO  implements IReceptDAO {
 	public List<ReceptDTO> getReceptList() throws DALException {
 		// TODO Auto-generated method stub
 		List<ReceptDTO> list = new ArrayList<ReceptDTO>();
-		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM RECEPT");
+		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM receipt");
 		try
 		{
 			while (rs.next()) 
 			{
-				list.add(new ReceptDTO(rs.getInt("RECEPT_ID"), 
-						rs.getString("RECEPT_NAVN")));
+				list.add(new ReceptDTO(rs.getInt("receiptID"), 
+						rs.getString("name")));
 			}
 		}
 		catch (SQLException e) { throw new DALException(e); }
@@ -38,10 +38,9 @@ public class ReceptDAO  implements IReceptDAO {
 	}
 
 	@Override
-	public void createRecept(ReceptDTO recept) throws DALException {
-		// TODO Auto-generated method stub		
+	public void createRecept(ReceptDTO recept) throws DALException {	
 		MySQLAccess.doUpdate(
-				"INSERT INTO RECEPT(RECEPT_ID, RECEPT_NAVN) values" + 
+				"INSERT INTO receipt(receiptID, name) values" + 
 						"(" + recept.getReceptId() + ", '" + 
 						recept.getReceptNavn() + "')" 
 				);						
@@ -49,22 +48,18 @@ public class ReceptDAO  implements IReceptDAO {
 
 	@Override
 	public void updateRecept(ReceptDTO recept) throws DALException {
-		// TODO Auto-generated method stub
-
 		MySQLAccess.doUpdate(
-				"UPDATE RECEPT SET RECEPT_ID = " + 
-						recept.getReceptId() + ", RECEPT_NAVN = '" + 
-						recept.getReceptNavn() + "'  WHERE RECEPT_ID = " + recept.getReceptId());
+				"UPDATE receipt SET receiptID = " + 
+						recept.getReceptId() + ", name = '" + 
+						recept.getReceptNavn() + "'  WHERE receiptID = " + recept.getReceptId());
 	}
 
 	@Override
 	public ReceptDTO getRecept(int receptId) throws DALException {
-		// TODO Auto-generated method stub
-
-		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM RECEPT WHERE RECEPT_ID = " + receptId);
+		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM receipt WHERE receiptID = " + receptId);
 		try {	    	
 			if (!rs.first()) throw new DALException("RECEPT" + receptId  + " findes ikke");
-			return new ReceptDTO (rs.getInt("recept_id"), rs.getString("recept_navn"));
+			return new ReceptDTO (rs.getInt("receiptID"), rs.getString("name"));
 		}
 		catch (SQLException e) {throw new DALException(e); }
 
