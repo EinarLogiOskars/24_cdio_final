@@ -7,11 +7,11 @@ $(document).ready(function() {
 		url: "http://localhost:8080/24_cdio_final/rest/pharmacist/showreceipts",
 		success: function(data) {
 			receipts = data;
-			console.log("I am the load materials success method.");
+			console.log("I am the load receipts success method.");
 			loadtable();
 		},
 		error: function(error) {
-			console.log("I am the load materials error method!");
+			console.log("I am the load receipts error method!");
 			console.log(error);
 		}
 	});
