@@ -17,6 +17,7 @@ $(document).ready(function() {
 				success: function(resp){
 					console.log('This is the Success method')
 					console.log(resp)
+					receiptKomponent();
 				},
 				error: function(resp){
 					console.log('This is the ERROR method')
@@ -48,5 +49,10 @@ $(document).ready(function() {
 				return false;
 			}
 		}
+	}
+	
+	//Create receipt komponent function
+	function receiptKomponent() {
+		$("#div2").load("createReceiptKomp.html");
 	}
 });
