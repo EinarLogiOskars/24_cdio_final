@@ -18,6 +18,7 @@ import daointerfaces.IRaavareDAO;
 import daointerfaces.IReceptDAO;
 import entity.RaavareDTO;
 import entity.ReceptDTO;
+import entity.ReceptKompDTO;
 
 @Path("/pharmacist")
 public class pharmacist {
@@ -108,5 +109,24 @@ public class pharmacist {
 		return receipts;
 	}
 	
+	@GET
+	@Path("/receiptid/{receiptName}")
+	public int getReceiptId(@PathParam("receiptName") String name) {
+		int id = 0;
+		try {
+			id = rp.getId(name);
+		} catch (DALException e) { e.printStackTrace(); }
+		return id;
+	}
+	
+	@POST
+	@Path("/createreceiptkomp")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public boolean createReceiptkomp(ReceptKompDTO receptKomp) {
+		
+		System.out.println(receptKomp.toString());
+		
+		return true;
+	}
 
 }

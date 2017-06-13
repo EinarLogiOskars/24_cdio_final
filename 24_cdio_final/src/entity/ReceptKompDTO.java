@@ -11,6 +11,16 @@ public class ReceptKompDTO
 	/** tolerance i området 0,1 - 10,0 % */
 	double tolerance;
 	
+	public ReceptKompDTO() {
+		
+	}
+	
+	@Override
+	public String toString() {
+		return "ReceptKompDTO [receptId=" + receptId + ", raavareId=" + raavareId + ", nomNetto=" + nomNetto
+				+ ", tolerance=" + tolerance + "]";
+	}
+
 	public ReceptKompDTO(int receptId, int raavareId, double nomNetto, double tolerance) {
 		this.receptId = receptId;
 		this.raavareId = raavareId;

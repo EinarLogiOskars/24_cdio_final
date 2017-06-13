@@ -64,4 +64,16 @@ public class ReceptDAO  implements IReceptDAO {
 		catch (SQLException e) {throw new DALException(e); }
 
 	}	
+	
+	@Override
+	public int getId (String name) throws DALException {
+		ResultSet rs = MySQLAccess.doQuery("SELECT receiptID FROM receipt WHERE name ='" + name + "'");
+		int id = 0;
+		try {
+			while(rs.next()) {
+				id = rs.getInt("receiptID");
+			}
+		} catch (SQLException e) { e.printStackTrace(); }
+		return id;
+	}
 }

@@ -15,7 +15,10 @@
 </head>
 
 <body>
-	<form id="CMForm" class="w3-margin">
+	<form id="RKForm" class="w3-margin">
+	
+		<label>Receipt ID<input type="number" step="1" min="1" max="99999999" id="receiptId" name="receptId"
+			class="w3-input" placeholder="" disabled></label>
 			
 		<label>Material ID<input type="number" step="1" min="1" max="99999999" id="materialId" name="raavareId"
 			class="w3-input" placeholder="Choose material id"></label>
@@ -26,7 +29,7 @@
 		<label>Tolerance<input type="number" step="0.1" min="0.1" max="10.0" id="tolerance" name="tolerance"
 			class="w3-input" placeholder="Tolerance"></label>
 
-		<input type="submit" value="Create receipt komponent" id="CMButton" class="w3-btn w3-highway-red w3-text-white">
+		<input type="submit" value="Create receipt komponent" id="RKButton" class="w3-btn w3-highway-red w3-text-white">
 
 	</form>
 </body>
