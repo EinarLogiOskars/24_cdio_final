@@ -26,8 +26,7 @@ public class RaavareDAO implements IRaavareDAO {
 	    try {
 	    	if (!rs.first()) throw new DALException("Raavare " + raavareId + " findes ikke");
 	    	return new RaavareDTO(rs.getInt("materialID"), rs.getString("name"), rs.getString("supplier"));
-	    }
-	    catch (SQLException e) {throw new DALException(e); }
+	    } catch (SQLException e) { throw new DALException(e); }
 	}
 
 	@Override

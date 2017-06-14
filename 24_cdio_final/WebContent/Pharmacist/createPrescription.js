@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	var name;
+	// creates the receipt
 	$("#CRForm").submit(function(event) {
 
 		//Prevent reset on form when an input is not correct...
@@ -8,7 +10,8 @@ $(document).ready(function() {
 		if (validateForm() == true) {
 
 			var data = $('#CRForm').serializeObject();
-			var name = data.receptNavn;
+			name = data.receptNavn;
+			sessionStorage.setItem("receiptName", name);
 
 
 			$.ajax({
@@ -19,17 +22,18 @@ $(document).ready(function() {
 				success: function(resp){
 					console.log('This is the Success method')
 					console.log(resp)
+					if(confirm("Do you want to add a receipt komponent?") == true) {
+						receiptKomponent();
+					}
+					else {
+						location.reload();
+					}
 				},
 				error: function(resp){
 					console.log('This is the ERROR method')
 					console.log(resp)
 				},
 			});
-			if(confirm("Do you want to add a receipt komponent?") == true) {
-				receiptKomponent(name);
-			}
-			//Simple javascript to reset...
-			document.getElementById('CRForm').reset();
 
 
 			// Don't submit the form again
@@ -37,13 +41,61 @@ $(document).ready(function() {
 		}
 	});
 
+
+	// creates the receipt komponent
 	$("#RKForm").submit(function(event) {
 
-		var RKdata = $("#RKForm").serializeObject();
+		//Prevent reset on form when an input is not correct...
+		event.preventDefault();
 
+		var data2 = $('#RKForm').serializeObject();
+		
 		$.ajax({
-			url: "http://localhost:8080/24_cdio_final/rest/pharmacist/createreceipt"
+			url: "http://localhost:8080/24_cdio_final/rest/pharmacist/" + data2.raavareId,
+			method: 'GET',
+			success: function(resp) {
+				console.log("success in validating receipt component...")
+				console.log(resp)
+				if (resp.raavareId == 0) {
+					alert("You picked a non-existing material id.");					
+				}
+				else {
+					//Sending receipt component... 
+					$.ajax({
+						url: "http://localhost:8080/24_cdio_final/rest/pharmacist/createreceiptkomp",
+						data: JSON.stringify(data2),
+						contentType: "application/json",
+						method: 'POST',
+						success: function(resp){
+							console.log('This is the Success method')
+							console.log(resp)
+						},
+						error: function(resp){
+							console.log('This is the ERROR method')
+							console.log(resp)
+						},
+					});
+					if(confirm("Do you want to add a receipt komponent?") == true) {
+						receiptKomponent();	
+					}
+					else {
+						location.reload();
+					}
+				}
+			},
+			error: function() {
+				console.log("validation error method");
+			}
 		});
+
+		
+		//Simple javascript to reset...
+		//document.getElementById('RKForm').reset();
+
+
+		// Don't submit the form again
+		return false;
+
 
 	});
 
@@ -57,7 +109,7 @@ $(document).ready(function() {
 			return false;
 		}
 		else {
-			if (confirm("Is all of the information correct?") == true) {	
+			if (confirm("Is the receipt name correct?") == true) {	
 				return true;
 			}
 			else {
@@ -67,14 +119,15 @@ $(document).ready(function() {
 	}
 
 	//Create receipt komponent function
-	function receiptKomponent(name) {
+	function receiptKomponent() {
 		$("#div2").load("createReceiptKomp.html");
 		$.ajax({
 			type: "GET",
-			url: "http://localhost:8080/24_cdio_final/rest/pharmacist/receiptid/" + name,
+			url: "http://localhost:8080/24_cdio_final/rest/pharmacist/receiptid/" + sessionStorage.getItem("receiptName"),
 			success: function(resp) {
 				console.log(resp);
-				$("#receiptId").val(resp);
+				sessionStorage.setItem("id", resp);
+				$("#receiptId").val(sessionStorage.getItem("id"));
 				console.log("I am the load receipt id success method.");
 			},
 			error: function(error) {
@@ -83,39 +136,7 @@ $(document).ready(function() {
 			}
 		});
 
-		$("#RKForm").submit(function(event) {
-
-			//Prevent reset on form when an input is not correct...
-			event.preventDefault();
-
-			var data2 = $('#RKForm').serializeObject();
-
-
-			$.ajax({
-				url: "http://localhost:8080/24_cdio_final/rest/pharmacist/createreceiptkomp",
-				data: JSON.stringify(data),
-				contentType: "application/json",
-				method: 'POST',
-				success: function(resp){
-					console.log('This is the Success method')
-					console.log(resp)
-				},
-				error: function(resp){
-					console.log('This is the ERROR method')
-					console.log(resp)
-				},
-			});
-			if(confirm("Do you want to add a receipt komponent?") == true) {
-				receiptKomponent(name);
-			}
-			//Simple javascript to reset...
-			document.getElementById('RKForm').reset();
-
-
-			// Don't submit the form again
-			return false;
-
-
-		});
 	}
+
+
 });

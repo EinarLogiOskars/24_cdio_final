@@ -13,9 +13,11 @@ import javax.ws.rs.core.MediaType;
 
 import daoimplements.RaavareDAO;
 import daoimplements.ReceptDAO;
+import daoimplements.ReceptKompDAO;
 import daointerfaces.IBrugerDAO.DALException;
 import daointerfaces.IRaavareDAO;
 import daointerfaces.IReceptDAO;
+import daointerfaces.IReceptKompDAO;
 import entity.RaavareDTO;
 import entity.ReceptDTO;
 import entity.ReceptKompDTO;
@@ -25,6 +27,7 @@ public class pharmacist {
 	
 	IRaavareDAO rv = new RaavareDAO();
 	IReceptDAO rp = new ReceptDAO();
+	IReceptKompDAO rk = new ReceptKompDAO();
 	
 	
 	@POST
@@ -119,12 +122,28 @@ public class pharmacist {
 		return id;
 	}
 	
+	@GET
+	@Path("/{receiptId}")
+	public ReceptDTO getReceipt(@PathParam("receipt") int receiptId) {
+
+		ReceptDTO receipt = new ReceptDTO();
+		try {
+			receipt = rp.getRecept(receiptId);
+		} catch (DALException e) { e.printStackTrace(); }
+		return receipt;
+	}
+		
+	
 	@POST
 	@Path("/createreceiptkomp")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public boolean createReceiptkomp(ReceptKompDTO receptKomp) {
-		
-		System.out.println(receptKomp.toString());
+		ReceptKompDTO reckomp = new ReceptKompDTO();
+		try {
+			rk.createReceptKomp(receptKomp);
+			reckomp = rk.getReceptKomp(receptKomp.getReceptId(), receptKomp.getRaavareId());
+		} catch (DALException e) { e.printStackTrace(); }
+		System.out.println(reckomp.toString());
 		
 		return true;
 	}
