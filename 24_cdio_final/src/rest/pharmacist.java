@@ -123,8 +123,8 @@ public class pharmacist {
 	}
 	
 	@GET
-	@Path("/{receiptId}")
-	public ReceptDTO getReceipt(@PathParam("receipt") int receiptId) {
+	@Path("/receipt/{receiptId}")
+	public ReceptDTO getReceipt(@PathParam("receiptId") int receiptId) {
 
 		ReceptDTO receipt = new ReceptDTO();
 		try {

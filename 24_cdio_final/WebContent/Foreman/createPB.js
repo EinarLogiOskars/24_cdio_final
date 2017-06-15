@@ -7,13 +7,15 @@ $(document).ready(function() {
 		
 		if (validateForm() == true) {
 
-			var data = $('#CPBForm').serializeObject();
-
+			var data = $('#PBForm').serializeObject();
+			console.log(data.receptId);
+			
 			$.ajax({
-				url: "http://localhost:8080/24_cdio_final/rest/pharmacist/" + data.receiptId,
+				url: "http://localhost:8080/24_cdio_final/rest/pharmacist/receipt/" + data.receptId,
 				method: 'GET',
 				success: function(resp) {
-					if (resp.receiptId != 0) {
+					console.log(resp);
+					if (resp.receptId != 0) {
 						$.ajax({
 							url: "http://localhost:8080/24_cdio_final/rest/foreman/createproductbatch",
 							data: JSON.stringify(data),
@@ -40,7 +42,7 @@ $(document).ready(function() {
 			})
 			
 			//Simple javascript to reset...
-			document.getElementById('CPBForm').reset();
+			document.getElementById('PBForm').reset();
 			
 			// Don't submit the form again
 			return false;

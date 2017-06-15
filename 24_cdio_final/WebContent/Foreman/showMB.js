@@ -26,9 +26,9 @@ $(document).ready(function() {
 		
 		$.each(materialbatches, function(i, item) {
 			$('<tr>').append(
-					$('<td>').text(item.materialBId),
-					$('<td>').text(item.materialId),
-					$('<td>').text(item.amount)
+					$('<td>').text(item.rbId),
+					$('<td>').text(item.raavareId),
+					$('<td>').text(item.maengde)
 			).appendTo('#table');
 		});
 	}

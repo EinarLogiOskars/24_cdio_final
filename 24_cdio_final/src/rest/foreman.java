@@ -34,7 +34,7 @@ public class foreman {
 	 * @return true
 	 */
 	@POST
-	@Path("/createproduktbatch")
+	@Path("/createproductbatch")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public boolean createProductBatch(ProduktBatchDTO produktbatch) {
 		try {

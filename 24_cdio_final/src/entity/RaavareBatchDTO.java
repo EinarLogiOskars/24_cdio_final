@@ -8,6 +8,15 @@ public class RaavareBatchDTO
 	int raavareId;             
 	/** mængde på lager */
 	double maengde;
+	public RaavareBatchDTO() {
+		
+	}
+	
+	@Override
+	public String toString() {
+		return "RaavareBatchDTO [rbId=" + rbId + ", raavareId=" + raavareId + ", maengde=" + maengde + "]";
+	}
+
 	public RaavareBatchDTO(int rbId, int raavareId, double maengde) {
 		this.rbId = rbId;
 		this.raavareId = raavareId;
