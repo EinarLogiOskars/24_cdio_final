@@ -1,12 +1,12 @@
 $(document).ready(function() {
 	
-	var users;
+	var materials;
 	
 	$.ajax({
 		type: "GET",
-		url: "some url",
+		url: "http://localhost:8080/24_cdio_final/rest/pharmacist/showmats",
 		success: function(data) {
-			users = data;
+			materials = data;
 			console.log("I am the load materials success method.");
 			loadtable();
 		},
@@ -26,9 +26,9 @@ $(document).ready(function() {
 		
 		$.each(materials, function(i, item) {
 			$('<tr>').append(
-					$('<td>').text(item.materialId),
-					$('<td>').text(item.materialName),
-					$('<td>').text(item.supplier)
+					$('<td>').text(item.raavareId),
+					$('<td>').text(item.raavareNavn),
+					$('<td>').text(item.leverandoer)
 			).appendTo('#table');
 		});
 	}

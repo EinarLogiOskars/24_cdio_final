@@ -1,0 +1,8 @@
+@CHARSET "ISO-8859-1";
+li {
+    list-style-type: none;
+}
+ul {
+	margin: 2% 0% 2% 0%;
+	padding: 0;
+}

@@ -1,17 +1,17 @@
 $(document).ready(function() {
 	
-	var users;
+	var receipts;
 	
 	$.ajax({
 		type: "GET",
-		url: "some url",
+		url: "http://localhost:8080/24_cdio_final/rest/pharmacist/showreceipts",
 		success: function(data) {
-			users = data;
-			console.log("I am the load materials success method.");
+			receipts = data;
+			console.log("I am the load receipts success method.");
 			loadtable();
 		},
 		error: function(error) {
-			console.log("I am the load materials error method!");
+			console.log("I am the load receipts error method!");
 			console.log(error);
 		}
 	});
@@ -19,20 +19,20 @@ $(document).ready(function() {
 	function loadtable(){
 		
 		$('<tr>').append(
-				$('<th>').text("Prescription ID"),
-				$('<th>').text("Prescription Name"),
-				$('<th>').text("Material IDs contained"),
-				$('<th>').text("nonNetto"),
-				$('<th>').text("Tolerance")
+				$('<th>').text("Receipt ID"),
+				$('<th>').text("Receipt Name")
+//				$('<th>').text("Material IDs contained"),
+//				$('<th>').text("nonNetto"),
+//				$('<th>').text("Tolerance")
 		).appendTo("#table");
 		
-		$.each(prescriptions, function(i, item) {
+		$.each(receipts, function(i, item) {
 			$('<tr>').append(
-					$('<td>').text(item.prescriptionId),
-					$('<td>').text(item.prescriptionName),
-					$('<td>').text(item.prescriptionMaterials),
-					$('<td>').text(item.nonNetto),
-					$('<td>').text(item.tolerance)
+					$('<td>').text(item.receptId),
+					$('<td>').text(item.receptNavn)
+//					$('<td>').text(item.receptMaterials)
+//					$('<td>').text(item.nonNetto),
+//					$('<td>').text(item.tolerance)
 			).appendTo('#table');
 		});
 	}

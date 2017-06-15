@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<!-- 
+<link rel="stylesheet" type="text/css" href="createUser.css" />
+-->
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript" src="jquery.serialize-object.min.js"></script>
+<script src="createPrescription.js"></script>
+<link rel="stylesheet" type="text/css" href="createPrescription.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://www.w3schools.com/lib/w3-colors-highway.css">
+<meta charset="UTF-8">
+</head>
+
+<body>
+	<form id="RKForm" class="w3-margin">
+	
+		<label>Receipt ID<input type="number" step="1" min="1" max="99999999" id="receiptId" name="receptId"
+			class="w3-input" placeholder="Receipt ID"></label>
+			
+		<label>Material ID<input type="number" step="1" min="1" max="99999999" id="materialId" name="raavareId"
+			class="w3-input" placeholder="Choose material id"></label>
+			
+		<label>NON Netto<input type="number" step="0.001" min="0.000" max="20.000" id="nonNetto" name="nomNetto"
+			class="w3-input" placeholder="nonNetto"></label>
+		
+		<label>Tolerance<input type="number" step="0.1" min="0.1" max="10.0" id="tolerance" name="tolerance"
+			class="w3-input" placeholder="Tolerance"></label>
+
+		<input type="submit" value="Create receipt komponent" id="RKButton" class="w3-btn w3-highway-red w3-text-white">
+
+	</form>
+</body>
+</html>

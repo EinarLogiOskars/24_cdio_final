@@ -22,23 +22,22 @@ public class RaavareDAO implements IRaavareDAO {
 	
 	@Override
 	public RaavareDTO getRaavare(int raavareId) throws DALException {
-		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM RAAVARE WHERE RAAVARE_ID = " + raavareId);
+		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM materials WHERE materialID = " + raavareId);
 	    try {
 	    	if (!rs.first()) throw new DALException("Raavare " + raavareId + " findes ikke");
-	    	return new RaavareDTO(rs.getInt("RAAVARE_ID"), rs.getString("RAAVARE_NAVN"), rs.getString("LEVERANDOER"));
-	    }
-	    catch (SQLException e) {throw new DALException(e); }
+	    	return new RaavareDTO(rs.getInt("materialID"), rs.getString("name"), rs.getString("supplier"));
+	    } catch (SQLException e) { throw new DALException(e); }
 	}
 
 	@Override
 	public List<RaavareDTO> getRaavareList() throws DALException {
 		List<RaavareDTO> list = new ArrayList<RaavareDTO>();
-		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM RAAVARE");
+		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM materials");
 		try
 		{
 			while (rs.next()) 
 			{
-				list.add(new RaavareDTO(rs.getInt("RAAVARE_ID"), rs.getString("RAAVARE_NAVN"), rs.getString("LEVERANDOER")));
+				list.add(new RaavareDTO(rs.getInt("materialID"), rs.getString("name"), rs.getString("supplier")));
 			}
 		}
 		catch (SQLException e) { throw new DALException(e); }
@@ -47,17 +46,15 @@ public class RaavareDAO implements IRaavareDAO {
 
 	@Override
 	public void createRaavare(RaavareDTO raavare) throws DALException {
-		MySQLAccess.doUpdate(
-				"INSERT INTO RAAVARE(RAAVARE_ID, RAAVARE_NAVN, LEVERANDOER) VALUES " +
-						"(" + raavare.getRaavareId() + ", '" + raavare.getRaavareNavn() + "', '" + raavare.getLeverandoer() + "')"
+		MySQLAccess.doUpdate("INSERT INTO materials(name, supplier) VALUES('" + raavare.getRaavareNavn() + "', '" + raavare.getLeverandoer() + "')"
 						);
 	}
 
 	@Override
 	public void updateRaavare(RaavareDTO raavare) throws DALException {
 		MySQLAccess.doUpdate(
-				"UPDATE RAAVARE SET RAAVARE_ID = " + raavare.getRaavareId() + ", RAAVARE_NAVN =  '" + raavare.getRaavareNavn() + 
-				"', LEVERANDOER = '" + raavare.getLeverandoer() + "'  WHERE RAAVARE_ID = " + raavare.getRaavareId()
+				"UPDATE materials SET materialID = " + raavare.getRaavareId() + ", name =  '" + raavare.getRaavareNavn() + 
+				"', supplier = '" + raavare.getLeverandoer() + "'  WHERE materialID = " + raavare.getRaavareId()
 		);
 	}
 
