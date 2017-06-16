@@ -94,9 +94,10 @@ nav li:last-child a {
 }
 
 .content {
-	width: 100%;
-	margin: auto;
 	position: absolute;
+	width: 100%;
+	height:100%;
+	margin: auto;
 	transition: all .3s ease-in-out;
 	-webkit-transition: all .3s ease-in-out;
 	-moz-transition: all .3s ease-in-out;
@@ -117,13 +118,13 @@ nav li:last-child a {
 }
 
 #admin {
-	visibility:hidden;
+	visibility:shown;
 }
 
 #Pharmacist {
-	visibility:hidden;
+	visibility:shown;
 }
 
 #Foreman {
-	visibility:hidden;
+	visibility:shown;
 }
