@@ -48,6 +48,22 @@ $(document).ready(function() {
 		window.location.assign("../Foreman/foremanIndex.html");
 	});
 	
+	$("#connectbtn").click(function(){
+		alert("Connected to weight simulator.");
+		$.ajax({
+			url: "http://localhost:8080/24_cdio_final/rest/connection/start",
+			method: 'GET',
+			success: function(resp){
+				console.log('This is the Success method')
+				console.log(resp)
+			},
+			error: function(resp){
+				console.log('This is the ERROR method')
+				console.log(resp)
+			},
+		});
+	});
+	
 	$("#logoutbtn").click(function() {
 		window.location.assign("../index.html");
 	});

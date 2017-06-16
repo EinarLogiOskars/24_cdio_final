@@ -124,6 +124,7 @@ public class pharmacist {
 	
 	@GET
 	@Path("/receipt/{receiptId}")
+	@Produces(MediaType.APPLICATION_JSON)
 	public ReceptDTO getReceipt(@PathParam("receiptId") int receiptId) {
 
 		ReceptDTO receipt = new ReceptDTO();

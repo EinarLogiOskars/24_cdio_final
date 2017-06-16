@@ -121,6 +121,7 @@ $(document).ready(function() {
 	//Create receipt komponent function
 	function receiptKomponent() {
 		$("#div2").load("createReceiptKomp.html");
+		
 		$.ajax({
 			type: "GET",
 			url: "http://localhost:8080/24_cdio_final/rest/pharmacist/receiptid/" + sessionStorage.getItem("receiptName"),

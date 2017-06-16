@@ -20,22 +20,15 @@ $(document).ready(function() {
 		
 		$('<tr>').append(
 				$('<th>').text("Product batch ID"),
-				$('<th>').text("Prescription ID"),
-				$('<th>').text("status"),
-				$('<th>').text("User ID"),
-				$('<th>').text("Tara weight"),
-				$('<th>').text("Netto weight")
+				$('<th>').text("Receipt ID"),
+				$('<th>').text("status")
 		).appendTo("#table");
 		
 		$.each(users, function(i, item) {
 			$('<tr>').append(
-					$('<td>').text(item.pBId),
-					$('<td>').text(item.prescriptionId),
+					$('<td>').text(item.pbId),
 					$('<td>').text(item.status),
-					$('<td>').text(item.userId),
-					$('<td>').text(item.materialBId),
-					$('<td>').text(item.taraWeight),
-					$('<td>').text(item.nettoWeight)
+					$('<td>').text(item.receptId)
 			).appendTo('#table');
 		});
 	}

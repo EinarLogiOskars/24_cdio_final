@@ -15,14 +15,16 @@
 </head>
 
 <body>
-	<form id="PBForm" class="w3-margin">
-
-		<label>Productbatch ID<input type="number" id="pbID" name="pbId" class="w3-input" placeholder="Choose PB id" step="1" min="1" max="99999999"></label> 	
-				
-		<label class="w3-margin-bottom">Receipt ID <input id="prescriptionId" type="number" name="receptId" class="w3-input" placeholder="Choose receipt id" step="1" min="1" max="99999999"></label> 
-		
-		<input type="submit" value="Create Product Batch" id="CPBButton" class="w3-btn w3-highway-red w3-text-white">
+	<form id="PBKForm" class="w3-margin">
+	
+		<label>Product Batch ID<input type="number" step="1" min="1" max="99999999" id="pbId" name="pbId"
+			class="w3-input"></label>
 			
+		<label>Material Batch ID<input type="number" step="1" min="1" max="99999999" id="mbId" name="rbId"
+			class="w3-input" placeholder="Choose material id"></label>
+
+		<input type="submit" value="Create product batch component" id="PBKButton" class="w3-btn w3-highway-red w3-text-white">
+
 	</form>
 </body>
 </html>

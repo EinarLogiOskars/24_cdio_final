@@ -2,6 +2,12 @@ package entity;
 
 public class ProduktBatchKompDTO 
 {
+	@Override
+	public String toString() {
+		return "ProduktBatchKompDTO [pbId=" + pbId + ", rbId=" + rbId + ", tara=" + tara + ", netto=" + netto
+				+ ", oprId=" + oprId + "]";
+	}
+
 	/** produkt batch id i området 1-99999999. Vælges af brugerne */   
 	int pbId;    
 	/** raavare batch id i området 1-99999999. Vælges af brugerne */ 
@@ -12,6 +18,10 @@ public class ProduktBatchKompDTO
 	double netto;
 	/** Laborant-identifikationsnummer */
 	int oprId;
+	
+	public ProduktBatchKompDTO() {
+		
+	}
 	
 	public ProduktBatchKompDTO(int pbId, int rbId, double tara, double netto, int oprId) {
 		this.pbId = pbId;

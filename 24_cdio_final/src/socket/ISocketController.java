@@ -1,6 +1,5 @@
 package socket;
 
-import java.net.Socket;
 
 public interface ISocketController {
 	
